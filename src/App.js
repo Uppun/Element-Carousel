@@ -36,11 +36,11 @@ class CarouselComponent extends Component {
 
   render() {
     return (
-      <div className='carouselComponent'>
+      <div className="carouselComponent">
         <button className="leftButton" onClick={() => this.handleClick(-1)}>Left</button>
-          <TransitionGroup className="elements">
+          <TransitionGroup className={this.state.isLeft ? "carousel-left" : "carousel-right"}>
             {this.props.children.map((child, index) => index === this.state.current && (
-              <CSSTransition key={index} timeout={500} classNames={this.state.isLeft ? "switch-left" : "switch-right"}>
+              <CSSTransition key={index} timeout={500} classNames="switch">
                 {child}
               </CSSTransition>
             ))}

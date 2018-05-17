@@ -1,48 +1,54 @@
+.carouselComponent {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 .carouselElement {
     position: absolute;
     height: 100%;
     width: 100%;
 }
 
-.elements {
+.carousel-left, .carousel-right {
     position: relative;
     height: 300px;
     width: 500px;
     overflow: hidden;
 }
 
-.switch-left-enter {
+.carousel-left .switch-enter {
     transform: translateX(500px);
 }
 
-.switch-left-enter-active {
+.carousel-left .switch-enter-active {
     transform: none;
     transition: transform 500ms ease-out;
 }
 
-.switch-left-exit {
+.carousel-left .switch-exit {
     transform: none;
 }
 
-.switch-left-exit-active {
+.carousel-left .switch-exit-active {
     transform: translateX(-500px);
     transition: transform 500ms ease-out;
 }
 
-.switch-right-enter {
+.carousel-right .switch-enter {
     transform: translateX(-500px);
 }
 
-.switch-right-enter-active {
+.carousel-right .switch-enter-active {
     transform: none;
     transition: transform 500ms ease-out;
 }
 
-.switch-right-exit {
+.carousel-right .switch-exit {
     transform: none;
 }
 
-.switch-right-exit-active {
+.carousel-right .switch-exit-active {
     transform: translateX(500px);
     transition: transform 500ms ease-out;
 }
