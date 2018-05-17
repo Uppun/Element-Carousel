@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 class CarouselElement extends Component {
   render() {
@@ -35,22 +35,16 @@ class CarouselComponent extends Component {
   }
 
   render() {
-
-    const currentChild = this.props.children[this.state.current];
     return (
       <div className='carouselComponent'>
         <button className="leftButton" onClick={() => this.handleClick(-1)}>Left</button>
-        <div className="elements">
-          <CSSTransition
-            in={true}
-            timeout={500}
-            classNames="switch"
-          >
-            <React.Fragment key={this.state.current}>
-              {currentChild}
-            </React.Fragment>
-          </CSSTransition>
-        </div>
+          <TransitionGroup className="elements">
+            {this.props.children.map((child, index) => index === this.state.current && (
+              <CSSTransition key={index} timeout={500} classNames={this.state.isLeft ? "switch-left" : "switch-right"}>
+                {child}
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         <button className="rightButton" onClick={() => this.handleClick(1)}>Right</button>
       </div>
     )
